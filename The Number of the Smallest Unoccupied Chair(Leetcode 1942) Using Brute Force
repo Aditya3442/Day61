@@ -1,0 +1,19 @@
+class Solution {
+    public int smallestChair(int[][] times, int targetFriend) {
+        int target=times[targetFriend][0];
+        Arrays.sort(times,(a,b)->a[0]-b[0]);
+        int arr[]=new int[times.length];
+        for(int i=0;i<times.length;i++){
+            for(int j=0 ; j<times.length;j++){
+                if(arr[j]<=times[i][0]){
+                    arr[j]=times[i][1];
+                    if(times[i][0]==target)
+                        return j;
+                    break;
+                }
+                     
+            }
+        }
+        return -1;
+    }
+}
